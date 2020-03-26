@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
  * @author zzy-PC
  * @date 2020/3/26 14:48
  */
-@ComponentScan(value = "notes", excludeFilters =
+@ComponentScan(value = "notes.service", excludeFilters =
         {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class})})
 @Configuration
 public class RootConfig {

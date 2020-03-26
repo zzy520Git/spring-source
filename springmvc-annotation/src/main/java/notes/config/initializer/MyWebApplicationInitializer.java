@@ -1,4 +1,4 @@
-package notes.webmvc.initializer;
+package notes.config.initializer;
 
 /**
  * Description：

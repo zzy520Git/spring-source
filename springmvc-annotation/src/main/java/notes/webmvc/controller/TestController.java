@@ -1,4 +1,4 @@
-package notes.controller;
+package notes.webmvc.controller;
 
 import notes.common.util.Result;
 import org.springframework.stereotype.Controller;
