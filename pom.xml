@@ -12,6 +12,8 @@
   <url>https://blog.csdn.net/zzy520comzzy</url>
   <modules>
     <module>spring-source-web</module>
+    <module>springmvc-annotation</module>
+    <module>spring-source-common</module>
   </modules>
 
   <properties>

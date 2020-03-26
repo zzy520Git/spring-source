@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * Description：
  *
+ *
  * @author zzy-PC
  * @date 2020/3/24 19:22
  */
@@ -18,9 +19,15 @@ public class IocTest {
     public void test() {
         AnnotationConfigApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(ConfigOfIoc.class);
+
         log.warn("spring初始化完成");
         Dog whiteDog = applicationContext.getBean(Dog.class);
         log.warn("whiteDog=" + whiteDog);
+
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
 
         applicationContext.close();
     }

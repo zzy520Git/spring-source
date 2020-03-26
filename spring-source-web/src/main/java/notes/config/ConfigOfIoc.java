@@ -2,6 +2,7 @@ package notes.config;
 
 import notes.bean.animal.Dog;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author zzy-PC
  * @date 2020/3/24 19:37
  */
+@ComponentScan(value = "notes.bean")
 @Configuration
 public class ConfigOfIoc {
     @Bean
