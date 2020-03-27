@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(value = "notes.bean")
 @Configuration
 public class ConfigOfIoc {
-    @Bean
+    //源码断点debug追踪bean的初始化过程
+    @Bean(initMethod = "init", destroyMethod = "destroy")
     public Dog whiteDog() {
         Dog dog = new Dog("小白");
         return dog;

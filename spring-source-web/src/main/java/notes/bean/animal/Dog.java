@@ -15,4 +15,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Dog {
     private String name;
+    public void init() {
+        System.out.println("dog.init执行");
+    }
+
+    public void destroy() {
+        System.out.println("dog.destroy执行");
+    }
 }

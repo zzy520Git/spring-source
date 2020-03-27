@@ -16,11 +16,13 @@ import org.springframework.stereotype.Component;
 public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("MyBeanPostProcessor在bean初始化之前调用" + beanName);
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("MyBeanPostProcessor在bean初始化之后调用：" + beanName);
         return bean;
     }
 }

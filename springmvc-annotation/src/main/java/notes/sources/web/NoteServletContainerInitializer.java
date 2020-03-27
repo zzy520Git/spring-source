@@ -11,6 +11,7 @@ package notes.sources.web;
  *  public class SpringServletContainerInitializer
  *      implements ServletContainerInitializer {
  *  3）@HandlesTypes也就是说，会加载所有实现了WebApplicationInitializer接口的实现类，传入onStartup的第一个参数
+ *  4）SpringServletContainerInitializer最后会循环调用每一个WebApplicationInitializer的onStartup方法
  *
  *
  * @see javax.servlet.ServletContainerInitializer
