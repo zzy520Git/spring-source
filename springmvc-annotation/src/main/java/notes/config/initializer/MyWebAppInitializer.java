@@ -4,6 +4,12 @@ import notes.config.AppConfig;
 import notes.config.RootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import java.util.EnumSet;
+
 /**
  * Description：
  * 推荐在web中使用
@@ -12,6 +18,18 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @date 2020/3/26 15:04
  */
 public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        servletContext.addListener(org.springframework.web.context.request.RequestContextListener.class);
+        super.onStartup(servletContext);
+        org.springframework.web.filter.CharacterEncodingFilter encodingFilter =
+                new org.springframework.web.filter.CharacterEncodingFilter("UTF-8", true);
+
+        FilterRegistration.Dynamic dynamic = servletContext.addFilter("encodingFilter", encodingFilter);
+        dynamic.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ASYNC),
+                true, "/*");
+    }
 
     /**
      * spring父容器
