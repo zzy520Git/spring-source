@@ -1,7 +1,7 @@
 package notes.config.initializer;
 
+import notes.config.AppConfig;
 import notes.config.RootConfig;
-import notes.webmvc.AppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**

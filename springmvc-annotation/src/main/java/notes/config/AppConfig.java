@@ -1,4 +1,4 @@
-package notes.webmvc;
+package notes.config;
 
 import notes.webmvc.converter.CustomDateConverter;
 import notes.webmvc.interceptor.LoginInterceptor;
@@ -30,7 +30,7 @@ import java.util.List;
  * @date 2020/3/26 14:48
  */
 @EnableWebMvc
-@ComponentScan(value = "notes.webmvc", includeFilters =
+@ComponentScan(value = "notes", includeFilters =
         {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class})},
         useDefaultFilters = false)
 @Configuration
