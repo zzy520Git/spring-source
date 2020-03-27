@@ -21,11 +21,11 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        servletContext.addListener(org.springframework.web.context.request.RequestContextListener.class);
+        //servletContext.addListener(org.springframework.web.context.request.RequestContextListener.class);
         super.onStartup(servletContext);
+
         org.springframework.web.filter.CharacterEncodingFilter encodingFilter =
                 new org.springframework.web.filter.CharacterEncodingFilter("UTF-8", true);
-
         FilterRegistration.Dynamic dynamic = servletContext.addFilter("encodingFilter", encodingFilter);
         dynamic.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ASYNC),
                 true, "/*");
