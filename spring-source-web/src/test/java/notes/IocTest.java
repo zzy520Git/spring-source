@@ -24,6 +24,8 @@ public class IocTest {
         Dog whiteDog = applicationContext.getBean(Dog.class);
         log.warn("whiteDog=" + whiteDog);
 
+        System.out.println("\n====================\n");
+
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
