@@ -9,5 +9,5 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  * @author zzy-PC
  * @date 2020/3/29 16:28
  */
-public interface CommentEsRepository extends ElasticsearchRepository<Comment, Long> {
+public interface CommentEsRepository extends ElasticsearchRepository<Comment, String> {
 }
