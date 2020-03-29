@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
  * @author zzy-PC
  * @date 2020/3/29 14:43
  */
-@ComponentScan(value = "notes.elastic")
+@ComponentScan(value = "notes.elastic.dao")
 @PropertySource(value = "classpath:/es.properties", encoding = "utf-8")
 @Configuration
 public class EsConfig {
