@@ -14,6 +14,11 @@ import java.net.InetAddress;
 
 /**
  * Description：
+ * 9100是启动端口
+ *
+ * es的9200作为Http协议，主要用于外部通讯  ，9300作为Tcp协议，jar之间就是通过tcp协议通讯
+ * <p>
+ * ES集群之间是通过9300进行通讯
  *
  * @author zzy-PC
  * @date 2020/3/29 14:11
@@ -41,7 +46,7 @@ public class EsClientFactory {
                     Settings settings = Settings.builder()
                             .put("cluster.name", masterClusterName)
                             .put("client.transport.sniff", false)
-                            .put("transport.netty.worker_count",1)
+                            .put("transport.netty.worker_count", 1)
                             .build();
                     transportClient = new PreBuiltTransportClient(settings);
                     transportClient.addTransportAddress(
@@ -55,7 +60,7 @@ public class EsClientFactory {
 
     @PreDestroy
     public void destroy() {
-        synchronized(EsClientFactory.class) {
+        synchronized (EsClientFactory.class) {
             if (transportClient != null) {
                 transportClient.close();
             }

@@ -1,0 +1,16 @@
+QueryBuilder orderItemsQuery = QueryBuilders.nestedQuery("orderItem.orderItems",
+				QueryBuilders.boolQuery()
+						.must(QueryBuilders.matchQuery("orderItem.orderItems.stockSite", "0001"))
+						.must(QueryBuilders.matchQuery("orderItem.orderItems.skuNo", "154018")),
+				ScoreMode.Total);
+
+		QueryBuilder orderQuery = QueryBuilders.nestedQuery("orderItem",
+				QueryBuilders.boolQuery()
+						.must(QueryBuilders.matchQuery("orderItem.orderType", "RO"))
+						.must(QueryBuilders.matchQuery("orderItem.orderDate", "20170708")),
+				ScoreMode.Total);
+
+		QueryBuilder queryBuilder = QueryBuilders.boolQuery().must(orderQuery).must(orderItemsQuery);
+
+		Iterable<OrderItem> it = orderRepository.search(queryBuilder);
+		List<OrderItem> list = Lists.newArrayList(it);
