@@ -12,7 +12,10 @@
   <elasticsearch:transport-client id="transportClient" cluster-name="elasticsearch"
                                   cluster-nodes="127.0.0.1:9300"/>
 
-  <elasticsearch:repositories base-package="notes.elastic.repository"/>
+  <!--配置集群信息-->
+  <!--<elasticsearch:transport-client id="esClient" cluster-name="my-elasticsearch" cluster-nodes="127.0.0.1:9300,127.0.0.1:9301,127.0.0.1:9302"/>-->
+
+  <elasticsearch:repositories base-package="notes.elastic.repository" elasticsearch-template-ref="elasticsearchTemplate"/>
 
   <bean id="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
     <constructor-arg name="client" ref="transportClient"/>
