@@ -31,6 +31,7 @@
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-elasticsearch</artifactId>
+      <!--2.0.6.RELEASE-->
       <version>3.0.5.RELEASE</version>
       <exclusions>
         <exclusion>
